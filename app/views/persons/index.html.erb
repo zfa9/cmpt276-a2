@@ -28,6 +28,30 @@
     text-align:center;
    padding:5px;
 }
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100px;
+    background-color: #f1f1f1;
+}
+
+li a {
+    display: block;
+    color: #000;
+    padding: 8px 0 8px 16px;
+    text-decoration: none;
+}
+
+li a.active {
+    background-color: black;
+    color: white;
+}
+
+li a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+}
 </style>
 </head>
 <body>
@@ -37,15 +61,15 @@
 </div>
 
 <div id="nav">
-<%= link_to 'Home', controller: 'welcome' %>
-<br>
-<%= link_to 'People Files', controller: 'persons' %>
-<br>
-<%= link_to 'New person', new_person_path %>
+  <ul>
+    <li><a href="/welcome/index">Home</a></li>
+    <li><a class="active" href="/persons">People Files</a></li>
+    <li><a href="/persons/new">New person</a></li>
+  </ul>
 </div>
 
 <div id="section">
-<h2>Listing People</h2>
+<h2><center>Listing People</center></h2>
 <style>
 table,th,td{
   border: 1px solid black;
