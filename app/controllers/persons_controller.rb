@@ -11,6 +11,10 @@ class PersonsController < ApplicationController
     @person = Person.new
   end
 
+  def edit
+    @person = Person.find(params[:id])
+  end
+
   def create
     @person = Person.new(person_params)
 
@@ -19,6 +23,22 @@ class PersonsController < ApplicationController
     else
       render 'new'
     end
+
+  def update
+    @person = Person.find(params[:id])
+
+    if @person.update(person_params)
+      redirect_to @person
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @person = Person.find(params[:id])
+    @person.destroy
+
+    redirect_to persons_path
   end
 
   private

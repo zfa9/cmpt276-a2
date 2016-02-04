@@ -8,6 +8,7 @@
     <th>Color</th>
     <th>Age</th>
     <th>Sex</th>
+    <th colspan="2"></th>
   </tr>
 
   <% @persons.each do |person| %>
@@ -18,6 +19,8 @@
       <td><%= person.color %></td>
       <td><%= person.age %></td>
       <td><%= person.sex %></td>
+      <td><%= link_to 'Show', person_path(person) %></td>
+      <td><%= link_to 'Edit', edit_person_path(person) %></td>
     </tr>
   <% end %>
 </table>
