@@ -1,2 +1,56 @@
+<head>
+<style>
+#header {
+    background-color:rgb(255,225,0);
+    color:white;
+    text-align:center;
+    padding:5px;
+}
+#nav {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:300px;
+    width:100px;
+    float:left;
+    padding:5px;
+}
+#section {
+    background-color:white;
+    color:black;
+    float:left;
+    padding:10px;
+}
+#footer {
+    background-color:rgb(255,225,0);
+    color:black;
+    clear:both;
+    text-align:center;
+   padding:5px;
+}
+</style>
+</head>
+<body>
+
+<div id="header">
 <h1>Welcome to online HR department</h1>
+</div>
+
+<div id="nav">
+<%= link_to 'Home', controller: 'welcome' %>
+<br>
 <%= link_to 'People Files', controller: 'persons' %>
+<br>
+<%= link_to 'New person', new_person_path %>
+</div>
+
+<div id="section">
+<h2>Attributes</h2>
+<p>This app includes features like: adding, editing, updating and deleting information of people.</p>
+<p>It can also display some attributes of people graphically.</p>
+</div>
+
+<div id="footer">
+Editing is fun on our website!
+</div>
+
+</body>
