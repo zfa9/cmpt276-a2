@@ -23,7 +23,8 @@ class PersonsController < ApplicationController
     else
       render 'new'
     end
-
+  end
+  
   def update
     @person = Person.find(params[:id])
 
