@@ -1,5 +1,12 @@
 <head>
 <style>
+#rcorners1 {
+    border-radius: 80px;
+    background: #73AD21;
+    padding: 20px;
+    width: 180px;
+    height: 180px;
+}
 #header {
     background-color:rgb(255,225,0);
     color:white;
@@ -9,17 +16,18 @@
 #nav {
     line-height:30px;
     background-color:#eeeeee;
-    height:300px;
+    height:500px;
     width:100px;
     float:left;
     padding:5px;
 }
 #section {
     background-color:white;
-    width:85%;
+    width:87%;
     color:black;
     float:left;
     padding:10px;
+    height:600;
 }
 #footer {
     background-color:rgb(255,225,0);
@@ -65,21 +73,31 @@ li a:hover:not(.active) {
     <li><a href="/welcome/index">Home</a></li>
     <li><a class="active" href="/persons">People Files</a></li>
     <li><a href="/persons/new">New person</a></li>
+    <li><a href="/persons/display">Display</li>
   </ul>
 </div>
 
 <div id="section">
 <h2><center>Listing People</center></h2>
 <style>
-table,th,td{
-  border: 1px solid black;
+table{
+  border-collapse: collapse;
+  width: 100%;
 }
+
+th,td{
+  text-align:left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color:#f2f2f2}
+
 th{
-  padding: 15px;
+  background-color:rgb(255,225,0)
 }
 </style>
 
-<table border="1" style="width:100%">
+<table border="1">
   <tr>
     <th>Name</th>
     <th>Weight</th>
@@ -100,17 +118,19 @@ th{
       <td><%= person.sex %></td>
       <td><%= link_to 'Show', person_path(person) %></td>
       <td><%= link_to 'Edit', edit_person_path(person) %></td>
-      <td><%= link_to 'Destroy', person_path(person),
+      <td><%= link_to 'Delete', person_path(person),
               method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
+              data: { confirm: 'Are you sure you want to delete him/her? :(' } %></td>
     </tr>
   <% end %>
 </table>
 
 </div>
 
+
+
 <div id="footer">
-Editing is fun on our website!
+Here are all the people's files :)
 </div>
 
 </body>

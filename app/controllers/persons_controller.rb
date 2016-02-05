@@ -24,7 +24,7 @@ class PersonsController < ApplicationController
       render 'new'
     end
   end
-  
+
   def update
     @person = Person.find(params[:id])
 
@@ -33,6 +33,10 @@ class PersonsController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def display
+    @persons = Person.all
   end
 
   def destroy

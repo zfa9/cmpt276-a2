@@ -1,5 +1,158 @@
-<h1>New Person</h1>
+<head>
+<style>
+#header {
+    background-color:rgb(255,225,0);
+    color:white;
+    text-align:center;
+    padding:5px;
+}
+#nav {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:500px;
+    width:100px;
+    float:left;
+    padding:5px;
+}
+#section {
+    background-color:white;
+    width:87%;
+    color:black;
+    float:left;
+    padding:10px;
+    height:600;
+}
+#footer {
+    background-color:rgb(255,225,0);
+    color:black;
+    clear:both;
+    text-align:center;
+   padding:5px;
+}
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+.button1 {
+    background-color: white;
+    color: black;
+    border: 2px solid rgb(255,225,0);
+}
 
-<%= render 'form' %>
+.button1:hover {
+    background-color: rgb(255,225,0);
+    color: white;
+}
 
-<%= link_to 'Back', persons_path %>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100px;
+    background-color: #f1f1f1;
+}
+
+li a {
+    display: block;
+    color: #000;
+    padding: 8px 0 8px 16px;
+    text-decoration: none;
+}
+
+li a.active {
+    background-color: black;
+    color: white;
+}
+
+li a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+}
+</style>
+</head>
+<body>
+
+<div id="header">
+<h1>Welcome to online HR department</h1>
+</div>
+
+<div id="nav">
+  <ul>
+    <li><a href="/welcome/index">Home</a></li>
+    <li><a href="/persons">People Files</a></li>
+    <li><a class="active" href="/persons/new">New person</a></li>
+  </ul>
+</div>
+
+<div id="section">
+<h2><center>New Person</center></h2>
+<p><center>
+  <%= form_for :person, url: persons_path do |f| %>
+
+    <% if @person.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@person.errors.count, "error") %> prohibited
+          this article from being saved:
+        </h2>
+        <ul>
+          <% @person.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <p>
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </p>
+
+    <p>
+      <%= f.label :weight %><br>
+      <%= f.number_field :weight %>
+    </p>
+    <p>
+      <%= f.label :height %><br>
+      <%= f.number_field :height %>
+    </p>
+
+    <p>
+      <%= f.label :color %><br>
+      <%= f.text_field :color %>
+    </p>
+
+    <p>
+      <%= f.label :age %><br>
+      <%= f.number_field :age %>
+    </p>
+
+    <p>
+      <%= f.label :sex %><br>
+      <%= f.text_field :sex %>
+    </p>
+
+    <p>
+      <%= f.submit "Save Person", :style =>'vertical-align:middle', :class=>'button button1' %>
+    </p>
+
+  <% end %>
+
+</center></p>
+</div>
+
+<div id="footer">
+Let's add a new person to our collection!
+</div>
+
+</body>

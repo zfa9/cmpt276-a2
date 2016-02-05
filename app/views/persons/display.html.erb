@@ -16,11 +16,10 @@
 }
 #section {
     background-color:white;
-    width:87%;
+    width:85%;
     color:black;
     float:left;
     padding:10px;
-    height:600;
 }
 #footer {
     background-color:rgb(255,225,0);
@@ -28,6 +27,12 @@
     clear:both;
     text-align:center;
    padding:5px;
+}
+#Graphs{
+  color:white;
+  height:100%;
+  width:100%;
+  padding:5px;
 }
 ul {
     list-style-type: none;
@@ -66,47 +71,26 @@ li a:hover:not(.active) {
     <li><a href="/welcome/index">Home</a></li>
     <li><a href="/persons">People Files</a></li>
     <li><a href="/persons/new">New person</a></li>
-    <li><a class="active">Show person</a></li>
-    <li><%= link_to 'Edit Person', edit_person_path %></li>
+    <li><a class="active" href="/persons/display">Display</li>
   </ul>
 </div>
 
 <div id="section">
-<h2><center>Show Person</center></h2>
-<p><center><p>
-  <strong>Name:</strong>
-  <%= @person.name %>
-</p>
-
-<p>
-  <strong>Weight:</strong>
-  <%= @person.weight %>
-</p>
-
-<p>
-  <strong>Height:</strong>
-  <%= @person.height %>
-</p>
-
-<p>
-  <strong>Color:</strong>
-  <%= @person.color %>
-</p>
-
-<p>
-  <strong>Age:</strong>
-  <%= @person.age %>
-</p>
-
-<p>
-  <strong>Sex:</strong>
-  <%= @person.sex %>
-</p>
-</center></p>
+  <h1><center>Graphical Display:)</center></h1>
+  <div id='Graphs'>
+      <% @persons.each do |g| %>
+          <svg width="<%=g.weight%>" height="<%=g.height%>">
+              <rect width = "<%=g.weight%>" height="<%=g.height%>" style="fill:<%=g.color%>;stroke-width:0;"/>
+              <text x="10%" y="20%"  text-anchor="left">Name:<%=g.name%></text>
+              <text x="10%" y="50%"  text-anchor="left">Age:<%=g.age%></text>
+              <text x="10%" y="80%"  text-anchor="left">Sex:<%=g.sex%></text>
+          </svg>
+      <% end %>
+  </div>
 </div>
 
 <div id="footer">
-Here's the person's information:)
+Getting to know people is fun!
 </div>
 
 </body>
