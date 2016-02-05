@@ -9,14 +9,15 @@
 #nav {
     line-height:30px;
     background-color:#eeeeee;
-    height:500px;
+    height:510px;
     width:100px;
     float:left;
     padding:5px;
 }
 #section {
-    background-color:white;
-    width:85%;
+    background-color:#E5E4E2;
+    width:87%;
+    height:500px;
     color:black;
     float:left;
     padding:10px;
@@ -81,9 +82,9 @@ li a:hover:not(.active) {
       <% @persons.each do |g| %>
           <svg width="<%=g.weight%>" height="<%=g.height%>">
               <rect width = "<%=g.weight%>" height="<%=g.height%>" style="fill:<%=g.color%>;stroke-width:0;"/>
-              <text x="10%" y="20%"  text-anchor="left">Name:<%=g.name%></text>
-              <text x="10%" y="50%"  text-anchor="left">Age:<%=g.age%></text>
-              <text x="10%" y="80%"  text-anchor="left">Sex:<%=g.sex%></text>
+              <text x="10%" y="20%"  text-anchor="left" fill="#BCC6CC">Name:<%=g.name%></text>
+              <text x="10%" y="50%"  text-anchor="left" fill="#BCC6CC">Age:<%=g.age%></text>
+              <text x="10%" y="80%"  text-anchor="left" fill="#BCC6CC">Sex:<%=g.sex%></text>
           </svg>
       <% end %>
   </div>
